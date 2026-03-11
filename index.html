@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Insurance Charges Predictor</title>
+
+<style>
+
+body{
+font-family: Arial;
+background: linear-gradient(135deg,#4facfe,#00f2fe);
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.container{
+background:white;
+padding:30px;
+width:420px;
+border-radius:12px;
+box-shadow:0px 10px 25px rgba(0,0,0,0.2);
+text-align:center;
+}
+
+h1{
+color:#333;
+margin-bottom:20px;
+}
+
+input,select{
+width:90%;
+padding:10px;
+margin:8px;
+border-radius:6px;
+border:1px solid #ccc;
+font-size:14px;
+}
+
+button{
+background:#4facfe;
+color:white;
+border:none;
+padding:12px 20px;
+width:95%;
+font-size:16px;
+border-radius:6px;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+background:#007bff;
+}
+
+.result{
+margin-top:20px;
+font-size:20px;
+color:#27ae60;
+font-weight:bold;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Insurance Charges Predictor</h1>
+
+<form action="/predict" method="post">
+
+<input type="number" name="age" placeholder="Enter Age" required>
+
+<select name="sex">
+<option value="0">Female</option>
+<option value="1">Male</option>
+</select>
+
+<input type="number" step="0.1" name="bmi" placeholder="Enter BMI" required>
+
+<input type="number" name="children" placeholder="Number of Children" required>
+
+<select name="smoker">
+<option value="0">Non Smoker</option>
+<option value="1">Smoker</option>
+</select>
+
+<select name="region">
+<option value="0">Southwest</option>
+<option value="1">Southeast</option>
+<option value="2">Northwest</option>
+<option value="3">Northeast</option>
+</select>
+
+<button type="submit">Predict Insurance Charges</button>
+
+</form>
+
+<div class="result">
+{{ prediction_text }}
+</div>
+
+</div>
+
+</body>
+</html>
